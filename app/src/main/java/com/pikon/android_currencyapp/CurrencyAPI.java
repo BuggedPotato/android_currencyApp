@@ -1,6 +1,6 @@
 package com.pikon.android_currencyapp;
 
-import com.pikon.android_currencyapp.Currency.CurrencyData;
+import com.google.gson.JsonObject;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -8,10 +8,11 @@ import retrofit2.http.Query;
 
 public interface CurrencyAPI {
     @GET( "latest" )
-    Call<CurrencyData> getLatest(
-            @Query( "base" ) String base
+    Call<JsonObject> getLatest(
+            @Query( "base" ) String base,
+            @Query( "symbols" ) String symbols
     );
 
-//    @GET( "weather?appid=0450d012acf0cc600edbcf1377ca48e1&units=metric" )
-//    Call<WeatherData> getCity( @Query( "q" ) String name );
+    @GET( "symbols" )
+    Call<JsonObject> getSymbols();
 }

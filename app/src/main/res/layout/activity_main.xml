@@ -6,11 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
+    android:padding="20dp"
     >
 
-    <SearchView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:background="@drawable/rounded"
+        >
+        <Spinner
+            android:id="@+id/spSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            />
 
+        <EditText
+            android:id="@+id/etAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1.00"
+            android:inputType="numberDecimal"
+            android:textAlignment="textEnd"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        >
+
+        <ListView
+            android:id="@+id/lvExchangeRates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fabAddCurrency"
+            android:src="@drawable/add_currency"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:contentDescription="Add a currency"
+            app:maxImageSize="40dp"
+            />
+    </RelativeLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
