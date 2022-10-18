@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
+        if( getSupportActionBar() != null )
+            getSupportActionBar().hide();
 
         etAmount = (EditText) findViewById( R.id.etAmount );
 
@@ -55,14 +57,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
         base = "EUR";
-        FloatingActionButton fab = (FloatingActionButton) findViewById( R.id.fabAddCurrency );
-        fab.setOnClickListener( new View.OnClickListener() {
+        ( (FloatingActionButton) findViewById( R.id.fabAddCurrency ) ).setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick( View view ) {
                 Intent i = new Intent( MainActivity.this, NewCurrencyActivity.class );
                 startActivity( i );
             }
         } );
+
+        ( (FloatingActionButton) findViewById( R.id.fabGraphs ) ).setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick( View view ) {
+                Intent i = new Intent( MainActivity.this, GraphActivity.class );
+                startActivity( i );
+            }
+        } );
+
 
         setSpinner();
         setList();
@@ -146,18 +156,20 @@ public class MainActivity extends AppCompatActivity {
 
                         etAmount.addTextChangedListener( new TextWatcher() {
                             @Override
-                            public void beforeTextChanged( CharSequence charSequence, int i, int i1, int i2 ) {}
+                            public void beforeTextChanged( CharSequence charSequence, int i, int i1, int i2 ) {
+                            }
 
                             @Override
                             public void onTextChanged( CharSequence charSequence, int i, int i1, int i2 ) {
                                 Log.d( "DEBUG", charSequence.toString() );
-                                for( CurrencyData obj : currencyData )
+                                for ( CurrencyData obj : currencyData )
                                     obj.setAmount( Double.parseDouble( etAmount.getText().toString() ) );
                                 adapter.notifyDataSetChanged();
                             }
 
                             @Override
-                            public void afterTextChanged( Editable editable ) {}
+                            public void afterTextChanged( Editable editable ) {
+                            }
                         } );
                     }
 

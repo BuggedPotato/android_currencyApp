@@ -1,10 +1,13 @@
 package com.pikon.android_currencyapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -31,8 +34,19 @@ public class NewCurrencyActivity extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_new_currency );
-
+        ActionBar actionBar = getSupportActionBar();
+        if( actionBar != null ){
+            actionBar.setTitle( "Add a currency" );
+            actionBar.setDisplayHomeAsUpEnabled( true );
+        }
         setList();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( @NonNull MenuItem item ) {
+        if( item.getItemId() == android.R.id.home )
+            this.finish();
+        return super.onOptionsItemSelected( item );
     }
 
     private void setList(){

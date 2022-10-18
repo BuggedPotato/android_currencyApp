@@ -48,12 +48,26 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/fabGraphs"
+            android:src="@drawable/graph"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:contentDescription="View graphs"
+            android:backgroundTint="#ff00ff"
+            app:maxImageSize="40dp"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/fabAddCurrency"
             android:src="@drawable/add_currency"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="10dp"
             android:contentDescription="Add a currency"
+            android:backgroundTint="@color/yellow_b"
             app:maxImageSize="40dp"
             />
     </RelativeLayout>
