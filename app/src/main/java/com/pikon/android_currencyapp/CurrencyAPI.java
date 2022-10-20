@@ -15,4 +15,12 @@ public interface CurrencyAPI {
 
     @GET( "symbols" )
     Call<JsonObject> getSymbols();
+
+    @GET( "timeseries" )
+    Call<JsonObject> getSeriesData(
+            @Query( "base" ) String base,
+            @Query( "start_date" ) String start,
+            @Query( "end_date" ) String end,
+            @Query( "symbols" ) String symbols
+    );
 }

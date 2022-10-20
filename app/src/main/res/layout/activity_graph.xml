@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GraphActivity">
+    tools:context=".GraphActivity"
+    android:orientation="vertical"
+    android:padding="30dp"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swColumn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/llTimeButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+    </LinearLayout>
+
+    <com.scichart.charting.visuals.SciChartSurface
+        android:id="@+id/chartSurface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
